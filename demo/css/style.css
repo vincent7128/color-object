@@ -1,0 +1,39 @@
+body {
+    background-color: #ccc;
+}
+
+.fork-me {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.fork-me img {
+    width: 150px;
+    height: auto;
+}
+
+.color {
+    text-align: center;
+    vertical-align: middle;
+    background-image: url(../img/transparent.png);
+}
+
+.color>div {
+    font-size: 2em;
+    font-weight: bolder;
+    line-height: 2;
+    color: #fff;
+    text-shadow: 0 0 3px #000;
+}
+
+.code-example {
+    display: none;
+    font-family: FontAwesome, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+@media (max-width: 767px) {
+    .fork-me img {
+        width: 120px;
+    }
+}
