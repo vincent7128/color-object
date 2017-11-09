@@ -29,9 +29,10 @@ var color = Color('rgb(34, 12, 64)');
 var color = Color('rgba(34, 12, 64, 0.6)');
 
 /* color convert */
-color.rgb();  // covent to css rgb color string, like rgb(34, 12, 64)
-color.rgba(); // covent to css rgba color string, like rgb(34, 12, 64, 0.6)
-color.hex();  // covent to css hex color string, like #00FFCCAA
+color.hex();   // covent to css hex color string, like #00FFCC
+color.hexa();  // covent to css hex color string, like #00FFCCAA
+color.rgb();   // covent to css rgb color string, like rgb(34, 12, 64)
+color.rgba();  // covent to css rgba color string, like rgb(34, 12, 64, 0.6)
 color.vec3();  // covent to WebGL vec3 color array, like [0, 0, 0]
 color.vec4();  // covent to WebGL vec4 color array, like [0, 0, 0, 1]
 ```
