@@ -203,7 +203,7 @@
         }
         color = color.trim();
         if (keyword[color]) {
-            return convert(color);
+            return convert(keyword[color]);
         }
         var match;
         if (match = hex3.exec(color)) {
