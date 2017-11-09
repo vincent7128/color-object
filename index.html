@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Color Object</title>
+    <meta charset="utf-8" />
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="demo/css/style.css">
+    <script src="dist/color.js"></script>
+    <script src="demo/js/demo.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Color Object</h1>
+            <h2>Create a color object and convert to rgb, rgba or hex string and WebGL color array.</h2>
+            <div class="text-right">
+                <a href="https://github.com/vincent7128/color-object/archive/master.zip" class="btn btn-success">Download .zip</a>
+            </div>
+            <a href="https://github.com/vincent7128/color-object" class="fork-me"><img src='demo/img/fork-me.png'/></a>
+        </header>
+        <hr>
+        <div class="row">
+            <div class="col col-xs-12 col-sm-6">
+                <form>
+                    <div class="form-group">
+                        <label>Red:</label>
+                        <input type="range" name="color-r" value="0"  step="1" min="0" max="255"/>
+
+                    </div>
+                    <div class="form-group">
+                        <label>Green:</label>
+                        <input type="range" name="color-g"  value="0"  step="1" min="0" max="255"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Blue:</label>
+                        <input type="range" name="color-b"  value="0"  step="1" min="0" max="255"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Alpha:</label>
+                        <input type="range" name="color-a" value="255"  step="25.5" min="0" max="255"/>
+                    </div>
+                </form>
+            </div>
+            <div class="col col-xs-12 col-sm-6">
+                HEX:
+                <div class="color color-hex"></div>
+                HEXA:
+                <div class="color color-hexa"></div>
+                RGB:
+                <div class="color color-rgb"></div>
+                RGBA:
+                <div class="color color-rgba"></div>
+            </div>
+        </div>
+        <hr>
+        <pre class="code-example"></pre>
+        <hr>
+        <div class="row">
+            <div class="col col-xs-12">
+                <h3>Usage</h3>
+                <p>NPM</p>
+                <pre>npm install color-object
+var color = require('color-object');</pre>
+                <p>CDN</p>
+                <pre>&lt;script src="https://cdn.jsdelivr.net/npm/color-object/dist/color.js"&gt;&lt;/script&gt;</pre>
+                <p>Code example:</p>
+                <pre>/* Init color object */
+/* &lt;hex-color&gt; values */
+var color = Color('#090');
+var color = Color('#009900');
+var color = Color('#090a');
+var color = Color('#009900aa');
+
+/* &lt;rgb()&gt; values */
+var color = Color('rgb(34, 12, 64)');
+var color = Color('rgba(34, 12, 64, 0.6)');
+
+/* color convert */
+color.hex();   // covent to css hex color string, like #00FFCC
+color.hexa();  // covent to css hex color string, like #00FFCCAA
+color.rgb();   // covent to css rgb color string, like rgb(34, 12, 64)
+color.rgba();  // covent to css rgba color string, like rgb(34, 12, 64, 0.6)
+color.vec3();  // covent to WebGL vec3 color array, like [0, 0, 0]
+color.vec4();  // covent to WebGL vec4 color array, like [0, 0, 0, 1]</pre>
+            </div>
+        </div>
+        <footer>
+            <hr>
+            <h3>License</h3>
+            <p>This project is licensed under the MIT License - see the <a href="https://github.com/vincent7128/color-object/blob/master/LICENSE">LICENSE</a> file for details
+                <p>
+                    <p><small>version: 0.1.0, page built @ Thu, 09 Nov 2017 15:26:37 GMT</small></p>
+        </footer>
+    </div>
+</body>
+
+</html>
