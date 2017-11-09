@@ -1,0 +1,36 @@
+{
+  "name": "color-object",
+  "version": "0.1.0",
+  "description": "Create color object then convert to hex, rgb, rgba and WebGL vec4, vec3 color array",
+  "main": "dist/color.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vincent7128/colors.git"
+  },
+  "keywords": [
+    "Color",
+    "HEX",
+    "RGB",
+    "RGBA",
+    "WebGL",
+    "vec3",
+    "vec4"
+  ],
+  "author": "Vincent Chen <vincent@pinpin.link>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vincent7128/color-object/issues"
+  },
+  "homepage": "https://vincent7128.github.io/color-object/",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-replace": "^0.6.1",
+    "gulp-sync": "^0.1.4",
+    "gulp-uglify": "^3.0.0",
+    "uglifyjs": "^2.4.11"
+  }
+}
