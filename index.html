@@ -31,7 +31,6 @@
                     <div class="form-group">
                         <label>Red:</label>
                         <input type="range" name="color-r" value="0"  step="1" min="0" max="255"/>
-
                     </div>
                     <div class="form-group">
                         <label>Green:</label>
@@ -71,6 +70,10 @@ var color = require('color-object');</pre>
                 <pre>&lt;script src="https://cdn.jsdelivr.net/npm/color-object/dist/color.js"&gt;&lt;/script&gt;</pre>
                 <p>Code example:</p>
                 <pre>/* Init color object */
+/* &lt;keyword-color&gt; values */
+var color = Color('aqua');
+var color = Color('coral');
+
 /* &lt;hex-color&gt; values */
 var color = Color('#090');
 var color = Color('#009900');
@@ -88,6 +91,7 @@ color.rgb();   // covent to css rgb color string, like rgb(34, 12, 64)
 color.rgba();  // covent to css rgba color string, like rgb(34, 12, 64, 0.6)
 color.vec3();  // covent to WebGL vec3 color array, like [0, 0, 0]
 color.vec4();  // covent to WebGL vec4 color array, like [0, 0, 0, 1]</pre>
+                <p><a href="https://github.com/vincent7128/color-object/blob/master/KEYWORD-LIST.md">Keyword color list</a></p>
             </div>
         </div>
         <footer>
@@ -95,7 +99,7 @@ color.vec4();  // covent to WebGL vec4 color array, like [0, 0, 0, 1]</pre>
             <h3>License</h3>
             <p>This project is licensed under the MIT License - see the <a href="https://github.com/vincent7128/color-object/blob/master/LICENSE">LICENSE</a> file for details
                 <p>
-                    <p><small>version: 0.1.1, page built @ Thu, 09 Nov 2017 16:50:15 GMT</small></p>
+                    <p><small>version: 0.2.0, page built @ Thu, 09 Nov 2017 16:51:55 GMT</small></p>
         </footer>
     </div>
 </body>
