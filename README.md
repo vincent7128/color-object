@@ -18,6 +18,10 @@ CDN:
 Code example:
 ```
 /* Init color object */
+/* <keyword-color> values */
+var color = Color('aqua');
+var color = Color('coral');
+
 /* <hex-color> values */
 var color = Color('#090');
 var color = Color('#009900');
@@ -36,6 +40,7 @@ color.rgba();  // covent to css rgba color string, like rgb(34, 12, 64, 0.6)
 color.vec3();  // covent to WebGL vec3 color array, like [0, 0, 0]
 color.vec4();  // covent to WebGL vec4 color array, like [0, 0, 0, 1]
 ```
+🔗 [keyword color list](KEYWORD-LIST.md)
 
 ## License
 
