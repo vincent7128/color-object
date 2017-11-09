@@ -1,6 +1,6 @@
 {
   "name": "color-object",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Create color object then convert to hex, rgb, rgba and WebGL vec4, vec3 color array",
   "main": "dist/color.js",
   "scripts": {
