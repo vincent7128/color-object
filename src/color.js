@@ -153,47 +153,49 @@
         hex4 = /^#([0-9A-F])([0-9A-F])([0-9A-F])([0-9A-F])$/i,
         hex6 = /^#([0-9A-F]{2})([0-9A-F]{2})([0-9A-F]{2})$/i,
         hex8 = /^#([0-9A-F]{2})([0-9A-F]{2})([0-9A-F]{2})([0-9A-F]{2})$/i,
-        rgb = /^rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})\)$/i,
-        rgba = /^rgba\((\d{1,3}), (\d{1,3}), (\d{1,3}), (\d{1,3})\)$/i,
-        ap, fn = {};
-    ap = function(color) {
-        var color = convert(color);
-        for (var f in fn) {
-            color[f] = fn[f];
+        rgb = /^rgb\( *(\d{1,3}) *, *(\d{1,3}) *, *(\d{1,3}) *\)$/i,
+        rgba = /^rgba\( *(\d{1,3}) *, *(\d{1,3}) *, *(\d{1,3}) *, *(\d*(\.\d+)?) *\)$/i,
+        fn, Color;
+    Color = function(color) {
+        if (!(this instanceof Color)) {
+            return new Color(color);
         }
-        return color;
+        this.color = convert(color);
+        return this;
     };
 
+    fn = Color.prototype;
+
     fn.hex = function() {
-        return '#' + toHex(this.r) + toHex(this.g) + toHex(this.b);
+        return '#' + toHex(this.color[0]) + toHex(this.color[1]) + toHex(this.color[2]);
     };
 
     fn.hexa = function() {
-        return '#' + toHex(this.r) + toHex(this.g) + toHex(this.b) + toHex(this.a);
+        return '#' + toHex(this.color[0]) + toHex(this.color[1]) + toHex(this.color[2]) + toHex(this.color[3]);
     };
 
     fn.rgb = function() {
-        return 'rgb(' + this.r + ', ' + this.g + ', ' + this.b + ')';
+        return 'rgb(' + this.color[0] + ', ' + this.color[1] + ', ' + this.color[2] + ')';
     };
 
     fn.rgba = function() {
-        return 'rgba(' + this.r + ', ' + this.g + ', ' + this.b + ', ' + trimFloat(this.a / 255) + ')';
+        return 'rgba(' + this.color[0] + ', ' + this.color[1] + ', ' + this.color[2] + ', ' + trimFloat(this.color[3] / 255) + ')';
     };
 
     fn.vec3 = function() {
         return [
-            trimFloat(this.r / 255),
-            trimFloat(this.g / 255),
-            trimFloat(this.b / 255)
+            trimFloat(this.color[0] / 255),
+            trimFloat(this.color[1] / 255),
+            trimFloat(this.color[2] / 255)
         ];
     };
 
     fn.vec4 = function() {
         return [
-            trimFloat(this.r / 255),
-            trimFloat(this.g / 255),
-            trimFloat(this.b / 255),
-            trimFloat(this.a / 255)
+            trimFloat(this.color[0] / 255),
+            trimFloat(this.color[1] / 255),
+            trimFloat(this.color[2] / 255),
+            trimFloat(this.color[3] / 255)
         ];
     };
 
@@ -207,54 +209,49 @@
         }
         var match;
         if (match = hex3.exec(color)) {
-            color = {
-                r: converHex(match[1] + match[1]),
-                g: converHex(match[2] + match[2]),
-                b: converHex(match[3] + match[3]),
-                a: 255
-            };
+            color = [
+                converHex(match[1] + match[1]),
+                converHex(match[2] + match[2]),
+                converHex(match[3] + match[3]),
+                255
+            ];
         } else if (match = hex4.exec(color)) {
-            color = {
-                r: converHex(match[1] + match[1]),
-                g: converHex(match[2] + match[2]),
-                b: converHex(match[3] + match[3]),
-                a: converHex(match[4] + match[4])
-            };
+            color = [
+                converHex(match[1] + match[1]),
+                converHex(match[2] + match[2]),
+                converHex(match[3] + match[3]),
+                converHex(match[4] + match[4])
+            ];
         } else if (match = hex6.exec(color)) {
-            color = {
-                r: converHex(match[1]),
-                g: converHex(match[2]),
-                b: converHex(match[3]),
-                a: 255
-            };
+            color = [
+                converHex(match[1]),
+                converHex(match[2]),
+                converHex(match[3]),
+                255
+            ];
         } else if (match = hex8.exec(color)) {
-            color = {
-                r: converHex(match[1]),
-                g: converHex(match[2]),
-                b: converHex(match[3]),
-                a: converHex(match[4])
-            };
+            color = [
+                converHex(match[1]),
+                converHex(match[2]),
+                converHex(match[3]),
+                converHex(match[4])
+            ];
         } else if (match = rgb.exec(color)) {
-            color = {
-                r: converRGB(match[1]),
-                g: converRGB(match[2]),
-                b: converRGB(match[3]),
-                a: 255
-            };
+            color = [
+                converRGB(match[1]),
+                converRGB(match[2]),
+                converRGB(match[3]),
+                255
+            ];
         } else if (match = rgba.exec(color)) {
-            color = {
-                r: converRGB(match[1]),
-                g: converRGB(match[2]),
-                b: converRGB(match[3]),
-                a: converAlpha(match[4])
-            };
+            color = [
+                converRGB(match[1]),
+                converRGB(match[2]),
+                converRGB(match[3]),
+                converAlpha(match[4])
+            ];
         } else {
-            color = {
-                r: 0,
-                g: 0,
-                b: 0,
-                a: 255
-            };
+            color = [0, 0, 0, 255];
         }
         return color;
     }
@@ -284,8 +281,8 @@
     }
 
     if (typeof module !== 'undefined' && module.exports) {
-        module.exports = ap;
+        module.exports = Color;
     } else {
-        window.Color = ap;
+        window.Color = Color;
     }
 })();
