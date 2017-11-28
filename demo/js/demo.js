@@ -28,10 +28,12 @@ function init() {
 
 
 function updateColor() {
-    color.r = parseInt(form.querySelector('input[name="color-r"]').value);
-    color.g = parseInt(form.querySelector('input[name="color-g"]').value);
-    color.b = parseInt(form.querySelector('input[name="color-b"]').value);
-    color.a = parseInt(form.querySelector('input[name="color-a"]').value);
+    color.color = [
+        parseInt(form.querySelector('input[name="color-r"]').value),
+        parseInt(form.querySelector('input[name="color-g"]').value),
+        parseInt(form.querySelector('input[name="color-b"]').value),
+        parseInt(form.querySelector('input[name="color-a"]').value)
+    ];
     colorHEX.innerHTML = '<div>' + color.hex() + '</div>';
     colorHEXA.innerHTML = '<div>' + color.hexa() + '</div>';
     colorRGB.innerHTML = '<div>' + color.rgb() + '</div>';
