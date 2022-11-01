@@ -26,7 +26,7 @@
   },
   "homepage": "https://vincent7128.github.io/color-object/",
   "dependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-clean": "^0.3.2",
     "gulp-replace": "^0.6.1",
     "gulp-sync": "^0.1.4",
